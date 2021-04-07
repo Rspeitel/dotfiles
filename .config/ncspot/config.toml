@@ -1,0 +1,19 @@
+notify = true
+[theme]
+background = "#272B33"
+primary = "#ABB2C0"
+secondary = "#5B626F"
+title = "#D19965"
+playing = "#D19965"
+playing_selected = "#D19965"
+playing_bg = "#2C323D"
+highlight = "#272B33"
+highlight_bg = "#D19965"
+error = "#ABB2C0"
+error_bg = "#DF6B75"
+statusbar = "#000000"
+statusbar_progress = "#D19965"
+statusbar_bg = "#D19965"
+cmdline = "#CBF1FF"
+cmdline_bg = "#272B33"
+

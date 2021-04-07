@@ -1,0 +1,49 @@
+#TAG,NAMEINREPO(orgiturl),PURPOSE,REQUIRED,TITLE,EXECCMD,ICON
+,xorg-server,"is the graphical server.",true,,,
+,xorg-xwininfo,"allows querying information about windows.",true,,,
+,xorg-xinit,"starts the graphical server.",true,,,
+,xorg-xrandr,"allows for manipulating the screens and monitors.",true,,,
+,ttf-hack,"is the primary font.",true,,,
+,noto-fonts,"is a font pack for making life easier",true,,,
+,pulseaudio-alsa,"is the audio system.",true,,,
+,pulsemixer,"is an audio controller.",true,"PulseMixer","st -n pulse -e pulsemixer",volume
+,pamixer,"is a command-line audio interface.",true,,,
+,neovim,"is my preference over typical vim.",false,"Neovim","st -n neovim -e nvim",neovim
+,xwallpaper,"sets the wallpaper",true,,,
+,sxiv,"is a image viewer",false,"Sxiv (ImageViewer)","st -n sxiv -e sxiv",image
+,unzip,"unzips zips.",false,,,
+,unrar,"extracts rar's.",false,,,
+,maim,"is a screenshot taker.",false,"Maim (Screenshot)",screenshot,screenshot
+,bc,"is a dropdown calculator",false,"Calculator","st -n bc -e bc",calculator
+,xclip,"allows copying and pasting from the command-line",false,,,
+,xdotool,"allows for modifying X11",true,,,
+,xcape,"allows for fancy keyboard remaps",true,,,
+,fzf,"is a fuzzy finder tool",false,,,
+,trash-cli,"is a trash program for the terminal",false,,,
+,neofetch,"is a system information tool",false,,,
+,bpytop,"is a system monitor tool with a slick UI",false,"Bpytop (System Monitor)","st -n "Bpytop" -e bpytop",bpytop
+,filezila,"is an ftp client",false,"Fillezilla","filezilla",filezilla
+,transmission-dameon,"is a torrent dameon with web client",false,,,
+,xcompmgr,"deals with transparency",true,,,
+,rofi,"is a application replacement for dmenu",true,,,
+,man-db,"is useful for viewing man pages",true,,,
+,steam,"is a game launcher",false,"Steam",steam,steam
+,nvidia,"is a graphics driver for nvidia gpus",true,,,
+,nvidia-settings,"is a graphics driver for nvidia gpus",true,"Nvidia Settings",nvidia-settings,nvidia
+,mutt,"is a terminal based mail client",false,"Mutt (Email)","st -n m -e mutt",mail
+,calcurse,"is a terminal calendar client",false,"Calcurse (Calendar)",st -n cal -e calcurse",calendar
+,dunst,"is for desktop notifications",false,,,
+,libgsf,"is required for joplin to install",false,,,
+,zathura,"is a pdf viewer",false,"Zathura (PDF Viewer)",zathura,zathura
+A,lf,"is a light weight flilemanager",false,"lf (File Manager)","st -n lf -e lf",file
+A,dbeaver,"is a tool for viewing databases",false,"Dbeaver","dbeaver",dbeaver
+A,slack-desktop,"is a messaging service",false,"Slack",slack,slack
+A,discord,"is another messaging service",false,"Discord",discord,discord
+A,ncspot,"is a terminal client for spotify",false,"Ncspot (Spotify)","st -n ncspot -e ncspot",spotify
+A,zsh-fast-syntax-highlighting,"provides syntax highlighting for zsh",false,,
+A,freecad,"is a free and open source cad program",false,"Freecad","freecad",freecad-daily
+A,joplin,"is a light weight note taking and todo editor",false,"Joplin (Note Taking)","joplin",joplin
+A,google-chrome,"is my prefered browser",false,"Chrome (Web Broswer)","google-chrome-stable",google-chrome
+M,dwm,"is a windowm anager.",true,,,
+M,st,"is a terminal emulator.",true,,,
+M,dwmblocks,"is a statusbar program for dwm",true,,,

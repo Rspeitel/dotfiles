@@ -1,0 +1,12 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+  1) notify-send "test1" ;;
+  2) notify-send "test2" ;;
+  3) notify-send "test3" ;;
+  4) notify-send "test4" ;;
+  5) notify-send "test5" ;;
+  6) notify-send "test6" ;;
+esac
+
+date "+%a, %m/%d/%y %H:%M"

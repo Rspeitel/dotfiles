@@ -1,0 +1,81 @@
+configuration {
+  font:                  "Hack 12";
+  icon-theme:            "file://~/.local/bin/icons";
+  show-icons:            true;
+  drun-display-format:   "{name}";
+  disable-history:       false;
+  fullscreen:            false;
+  hide-scrollbar:        true;
+  sidebar-mode:          false;
+}
+
+@import "colors.rasi"
+
+window {
+  transparency:        "real";
+  background-color:    @background;
+  text-color:          @foreground;
+  border-radius:       0px;
+  location:            center;
+  x-offset:            20%;
+  y-offset:            -30%;
+}
+
+prompt {
+  enabled:              true;
+  padding:              5px 5px 5px 0;
+  background-color:     @background;
+  text-color:           @foreground;
+}
+
+textbox-prompt-colon {
+  expand:               false;
+  str:                  "System |";
+  background-color:     @background;
+  text-color:           @foreground;
+  padding:              5px 5px 5px 0;
+}
+
+inputbar {
+  children:             [ textbox-prompt-colon, prompt ];
+  background-color:   @background;
+  text-color:         @foreground;
+  expand:             false;
+  border:             0px 0px 2px 0px;
+  border-radius:      10%;
+  border-color:       @bordercolor;
+  margin:             0 500px 0 0;
+  padding:            1%;
+  position:           center;
+}
+
+listview {
+  background-color:   @background;
+  margin:             20px 0 0 0;
+  layout:             horizontal;
+  spacing:            25px;
+}
+
+mainbox {
+  background-color:   @background;
+  children:           [ inputbar, listview ];
+  margin:             20px;
+}
+
+element {
+  size:                       200px;
+  margin:                     20px 0 0 0;
+  background-color:           @background;
+  alternate-background-color: @background;
+  orientation:                horizontal;
+}
+
+element-text {
+  font:                       "Hack 1";
+}
+
+element-icon {
+  size:                 155px;
+  horizontal-align:     0.5;
+  vertical-align:       0.5;
+}

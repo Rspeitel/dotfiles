@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Prints current volume or mute if muted
+
+
+[ $(pamixer --get-mute) = true ] && echo "Vol: Mute" && exit
+
+echo "Vol: $(pamixer --get-volume)%"

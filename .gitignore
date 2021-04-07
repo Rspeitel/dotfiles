@@ -1,0 +1,42 @@
+.gitconfig
+# DWM Builds
+*.o
+# Basic folders that I use
+Documents/*
+Downloads/*
+Screenshots/*
+# Stuff I can't get rid of
+.bash_profile
+.bash_logout
+.bashrc
+# Cache is the basics
+.cache/
+# Extra .configs that we don't need to include
+.config/FreeCAD
+.config/google-chrome
+.config/nvim/autoload
+.config/nvim/plugged
+.config/zsh/.zcompdump
+.config/ncspot/userstate.toml
+.config/bpytop/error.log
+.config/pulse
+.config/filezilla
+
+# Local
+.local/share/cargo
+.local/share/calcurse
+.local/share/xorg
+.local/share/nvim
+.local/share/mimeapps.list
+.local/share/recently-used.xbel
+.local/share/zathura
+
+# Suckless
+.suckless/dwm/dwm
+.suckless/st/st
+
+# Fzf, FreeCad, Chrome,
+.fzf.bash
+.fzf
+.FreeCAD
+.pki
