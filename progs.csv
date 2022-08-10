@@ -4,6 +4,7 @@
 ,xorg-xinit,"starts the graphical server.",1,,,
 ,xorg-xrandr,"allows for manipulating the screens and monitors.",1,,,
 ,xorg-xset,"allows setting keybindings",1,,,
+,pacman-contrib,"cleans the cache after three new versions",1,,,
 ,git,"is a repository manager",1,,,
 ,openssh,"is a ssh protocol",1,,,
 ,ttf-hack,"is the primary font.",1,,,
@@ -43,7 +44,8 @@ A,dbeaver,"is a tool for viewing databases",0,"Dbeaver","dbeaver",dbeaver
 A,slack-desktop,"is a messaging service",0,"Slack",slack,slack
 A,discord,"is another messaging service",0,"Discord",discord,discord
 A,ncspot,"is a terminal client for spotify",0,"Ncspot (Spotify)","st -n ncspot -e ncspot",spotify
-A,zsh-fast-syntax-highlighting,"provides syntax highlighting for zsh",0,,
+A,zsh-fast-syntax-highlighting,"provides syntax highlighting for zsh",1,,
+,zsh-history-substring-search,"provides zsh search history",1,,
 A,freecad,"is a free and open source cad program",0,"Freecad","freecad",freecad-daily
 A,joplin,"is a light weight note taking and todo editor",0,"Joplin (Note Taking)","joplin",joplin
 A,google-chrome,"is my prefered browser",0,"Chrome (Web Broswer)","google-chrome-stable",google-chrome

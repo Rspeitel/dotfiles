@@ -1,5 +1,4 @@
 # First config lot stolen from Luke
-
 # Enable colors:
 autoload -U colors && colors	# Load colors
 setopt autocd		# Automatically cd into typed directory.
@@ -25,6 +24,7 @@ HISTFILE=~/.cache/zsh/history
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+. $HOME/.local/share/asdf/asdf.sh
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -77,3 +77,8 @@ bindkey -s '^t' 'cd "$(dirname "$(fzf)")"\n'
 
 # Load syntax highlighting; has to be last
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh 2>/dev/null
+
+# History plugin
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
