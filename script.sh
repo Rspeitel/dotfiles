@@ -153,13 +153,16 @@ preinstallmsg || error "User exited."
 
 # Install the dotfiles in the user's home directory
 # Sym link all the files
-mkdir "/home/$name/.config"
+mkdir "/home/$name/.local/share"
 ln -s "$repopath/local/bin" "/home/$name/.local/bin"
 ln -s "$repopath/local/share/*" "/home/$name/.local/share"
-ln -s "$repopath/config/*" "/home/$name/.config"
-ln -s "$repopath/suckless" "/home/$name/.suckless"
+ln -s "$repopath/config" "/home/$name/.config"
 ln -s "$repopath/config/x11/xprofile" "/home/$name/.xprofile"
 ln -s "$repopath/config/shell/profile" "/home/$name/.zprofile"
+
+chown -R $name "/home/$name/.local"
+chown -R $name "/home/$name/.config"
+chown -R $name "/home/$name/arch"
 
 # Refresh Arch keyrings.
 refreshkeys || error "Error automatically refreshing Arch keyring. Consider doing so manually."

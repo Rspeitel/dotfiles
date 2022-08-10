@@ -28,7 +28,6 @@
 ,bpytop,"is a system monitor tool with a slick UI",0,"Bpytop (System Monitor)","st -n "Bpytop" -e bpytop",bpytop
 ,filezila,"is an ftp client",0,"Fillezilla","filezilla",filezilla
 ,transmission-dameon,"is a torrent dameon with web client",0,,,
-,xcompmgr,"deals with transparency",1,,,
 ,rofi,"is a application replacement for dmenu",1,,,
 ,man-db,"is useful for viewing man pages",1,,,
 ,steam,"is a game launcher",0,"Steam",steam,steam
@@ -39,13 +38,11 @@
 ,dunst,"is for desktop notifications",1,,,
 ,libgsf,"is required for joplin to install",0,,,
 ,zathura,"is a pdf viewer",0,"Zathura (PDF Viewer)",zathura,zathura
+,qutebrowser,"is a vim controlled browser",1,"QuteBrowser",qutebrowser,qutebrowser
 A,lf,"is a light weight flilemanager",0,"lf (File Manager)","st -n lf -e lf",file
-A,dbeaver,"is a tool for viewing databases",0,"Dbeaver","dbeaver",dbeaver
-A,slack-desktop,"is a messaging service",0,"Slack",slack,slack
 A,discord,"is another messaging service",0,"Discord",discord,discord
-A,ncspot,"is a terminal client for spotify",0,"Ncspot (Spotify)","st -n ncspot -e ncspot",spotify
 A,zsh-fast-syntax-highlighting,"provides syntax highlighting for zsh",1,,
-,zsh-history-substring-search,"provides zsh search history",1,,
+A,zsh-history-substring-search,"provides zsh search history",1,,
 A,freecad,"is a free and open source cad program",0,"Freecad","freecad",freecad-daily
 A,joplin,"is a light weight note taking and todo editor",0,"Joplin (Note Taking)","joplin",joplin
 A,google-chrome,"is my prefered browser",0,"Chrome (Web Broswer)","google-chrome-stable",google-chrome
