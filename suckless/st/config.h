@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font = "Hack:pixelsize=12:antialias=true:autohint=true";
-static int borderpx = 1;
+static int borderpx = 2;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -93,28 +93,26 @@ char *termname = "st-256color";
  */
 unsigned int tabspaces = 8;
 
-/* bg opacity */
-float alpha = 0.9;
-
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	[0] = "#2c323d",  /* black   */
-	[1] = "#df6b75",  /* red     */
-	[2] = "#97C279",  /* green   */
-	[3] = "#e2c08d",  /* yellow  */
-	[4] = "#61Afef",  /* blue    */
-	[5] = "#c578dd",  /* magenta */
-	[6] = "#56b5c2",  /* cyan    */
-	[7] = "#abb2bf",  /* white   */
+	[0] = "#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
+	[1] = "#cc241d", /* red     */
+	[2] = "#98971a", /* green   */
+	[3] = "#d79921", /* yellow  */
+	[4] = "#458588", /* blue    */
+	[5] = "#b16286", /* magenta */
+	[6] = "#689d6a", /* cyan    */
+	[7] = "#a89984", /* white   */
 
-	[8] = "#5b626f",  /* black   */
-	[9] = "#be5046",  /* red     */
-	[10] = "#abdc89", /* green   */
-	[11] = "#f2ce97", /* yellow  */
-	[12] = "#65b6f8", /* blue    */
-	[13] = "#d682f0", /* magenta */
-	[14] = "#66d7e6", /* cyan    */
-	[15] = "#abb2bf", /* white   */
+	[8]  = "#928374", /* black   */
+	[9]  = "#fb4934", /* red     */
+	[10] = "#b8bb26", /* green   */
+	[11] = "#fabd2f", /* yellow  */
+	[12] = "#83a598", /* blue    */
+	[13] = "#d3869b", /* magenta */
+	[14] = "#8ec07c", /* cyan    */
+	[15] = "#ebdbb2", /* white   */
+
 
 	/* special colors*/
 	[256] = "#272b33", /* background */
@@ -122,15 +120,14 @@ static const char *colorname[] = {
 	[258] = "#3e4451", /* cursor selection */
 };
 
-
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 257;
-unsigned int defaultbg = 256;
-static unsigned int defaultcs = 257;
-static unsigned int defaultrcs = 256;
+unsigned int defaultfg = 15;
+unsigned int defaultbg = 0;
+unsigned int defaultcs = 15;
+static unsigned int defaultrcs = 257;
 
 /*
  * Default shape of cursor
