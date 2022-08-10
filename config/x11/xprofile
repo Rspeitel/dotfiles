@@ -2,8 +2,8 @@
 
 # This will log you into the graphical session
 
-setbg &
-remaps &
+~/.local/bin/setbg &
+~/.local/bin/remaps &
 xcompmgr &
 dwmblocks &
 dunst &
