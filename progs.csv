@@ -39,6 +39,9 @@
 ,qutebrowser,"is a vim controlled browser",1,"QuteBrowser",qutebrowser,qutebrowser
 ,python-tldextract,"is required for lastpass qutebrowser plugin",0,,,
 ,sysstat,"is mpstat required for dwmblocks cpu status",0,,,
+,gnucash,"is a accounting software",0,,,
+A,qbittorrent-git,"is a torrent client",0,"qBittorrent",qbittorrent,qbittorrent
+A,kvantum,"is needed for themeing",1,,,
 A,lf,"is a light weight flilemanager",0,"lf (File Manager)","st -n lf -e lf",file
 A,discord,"is another messaging service",0,"Discord",discord,discord
 A,zsh-fast-syntax-highlighting,"provides syntax highlighting for zsh",1,,

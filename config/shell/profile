@@ -25,6 +25,9 @@ export NPM_CONFIG_CACHE="${$XDG_CACHE_HOME:-$HOME/.cache}/npm"
 export NPM_CONFIG_USERCONFIG="${$XDG_CONFIG_HOME:-$HOME/.config}/npm"
 export FREE_CAD_USER_HOME="${$XDG_CONFIG_HOME:-$HOME/.config}/FreeCAD"
 
+# Setup themeing
+export QT_STYLE_OVERRIDE=kvantum
+
 # Other Programs
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm

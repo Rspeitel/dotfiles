@@ -13,6 +13,13 @@ config/pulse
 config/filezilla
 config/qutebrowser/bookmarks
 config/qutebrowser/quickmarks
+config/dconf
+
+# Qbittorrent
+config/qbittorrent/categories.json
+config/qbittorrent/rss
+config/qbittorrent/watched_folders.json
+config/qbittorrent/qBittorrent-data.conf
 
 # Local
 local/share/cargo
