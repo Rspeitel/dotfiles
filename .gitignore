@@ -21,6 +21,14 @@ config/qbittorrent/rss
 config/qbittorrent/watched_folders.json
 config/qbittorrent/qBittorrent-data.conf
 
+#Joplin Desktop
+config/Joplin
+config/joplin-desktop/database.sqlite
+config/joplin-desktop/cache
+config/joplin-desktop/resources
+config/joplin-desktop/tmp
+config/joplin-desktop/log.txt
+
 # Local
 local/share/cargo
 local/share/calcurse
