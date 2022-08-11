@@ -40,6 +40,8 @@
 ,python-tldextract,"is required for lastpass qutebrowser plugin",0,,,
 ,sysstat,"is mpstat required for dwmblocks cpu status",0,,,
 ,gnucash,"is a accounting software",0,,,
+,spotifyd,"is a spotify dameon for playing spotify",0,,,
+,spotify-qt,"is a spotify app for controlling the spotify dameon",0,"Spotify",spotify-qt,spotify
 A,qbittorrent-git,"is a torrent client",0,"qBittorrent",qbittorrent,qbittorrent
 A,kvantum,"is needed for themeing",1,,,
 A,lf,"is a light weight flilemanager",0,"lf (File Manager)","st -n lf -e lf",file

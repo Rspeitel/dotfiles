@@ -1,0 +1,55 @@
+{
+    "Account": {
+        "access_token": "BQB6T0jBuND_YdKQmXSmOai_ormP50QCzZPRwz25P_Qy6M5FFomNv18uJQIaJaJRt5nkAID7_AB2eROZFONNjEFtwcoJ45pg9vjEhwbfw9gwC645hLagMojO2qAeuDShRpXPTPiN5COVLQ7mDstWWUnmlar7c_cdFUAbRJU9kLpo4KiP7x4iXj2PLNWBHfynXtWSSmE1IDuwS1S4KejU8mPnxCg4NOWVSns9IvPLVr-UM_XGE5p5Fu-XPAO5OzRjdL6wwEPIzeM6K4hCIfZmpveC5H1mdm5QWffujjDQOXKEgf3rdXz3MnKI5KASAFuKMGjV1jUX0A9-",
+        "client_id": "7bf12bf84a8c425d9a4d33283947db5e",
+        "client_secret": "ce91a3e5c79e494ea213ff6298c78760",
+        "last_refresh": 1660261111,
+        "refresh_token": "AQBtlW9Uq2GYqD9Fo-8hYPL4AwEJsWwRDATXaLOSS6QdbNP5YjeBvoJCgHjNe-F45W71OUX3NSklTkqcnBOCChp2PmboynTU3BlVMtCj2VIGBzqtZ-bm6INCVrH-9UVq3ng"
+    },
+    "General": {
+        "check_for_updates": true,
+        "close_to_tray": false,
+        "custom_playlist_order": [],
+        "fallback_icons": false,
+        "fixed_width_time": true,
+        "hidden_song_headers": [],
+        "last_device": "",
+        "last_playlist": "37i9dQZF1E36ZZInd4CxrD",
+        "last_version": "v3.9",
+        "last_volume": 11,
+        "media_controller": false,
+        "notify_track_change": false,
+        "playlist_order": 1,
+        "refresh_interval": 3,
+        "relative_added": true,
+        "show_changelog": true,
+        "song_header_sort_by": -1,
+        "style": "kvantum",
+        "style_palette": 0,
+        "track_list_resize_mode": 0,
+        "track_numbers": 1,
+        "tray_album_art": false,
+        "tray_icon": true,
+        "tray_light_icon": false
+    },
+    "Qt": {
+        "album_size": 1,
+        "custom_font_name": "",
+        "custom_font_size": 0,
+        "mirror_title_bar": false,
+        "system_title_bar": false
+    },
+    "Spotify": {
+        "always_start": true,
+        "backend": "",
+        "bitrate": 320,
+        "device_type": 0,
+        "disable_discovery": false,
+        "global_config": false,
+        "keyring_password": false,
+        "max_queue": 500,
+        "path": "",
+        "start_client": false,
+        "username": ""
+    }
+}
