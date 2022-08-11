@@ -154,7 +154,7 @@ preinstallmsg || error "User exited."
 # Install the dotfiles in the user's home directory
 # Sym link all the files
 mkdir "/home/$name/.local/share"
-ln -s "$repopath/local/bin" "/home/$name/.local/bin"
+ln -s "$repopath/local/bin" "/home/$name/.local"
 ln -s "$repopath/local/share/*" "/home/$name/.local/share"
 ln -s "$repopath/config" "/home/$name/.config"
 ln -s "$repopath/config/x11/xprofile" "/home/$name/.xprofile"

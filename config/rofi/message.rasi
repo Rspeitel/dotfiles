@@ -2,7 +2,7 @@
 
 
 configuration {
-  font:                  "Hack 20";
+  font:                  "Hack 12";
   icon-theme:            "Papirus-Light";
   show-icons:            false;
   drun-display-format:   "{name}";
@@ -15,27 +15,34 @@ configuration {
 @import "colors.rasi"
 
 window {
-
-  width: 300px;
-  background-color:    @background;
-  text-color:          @foreground;
-  location:            center;
+    background-color: @background;
+    text-color: @foreground;
+    border: 0px;
+    border-color: @border-color;
+    border-radius: 0px;
+    width: 35%;
+    location: center;
+    x-offset: 0;
+    y-offset: 0;
 }
 
 textbox {
   expand:               false;
-  str:                  "Are you sure";
+  str:                  "Are you sure?";
   background-color:     @background;
   text-color:           @foreground;
   margin:               10px;
 }
 
 listview {
-  background-color:   @background;
-  layout:             horizontal;
-  margin:             0px 0px 0px 10px;
-  spacing:            25px;
-  width:              3px;
+    background-color: @foreground;
+    padding: 0px;
+    columns: 1;
+    lines: 2;
+    spacing: 0%;
+    cycle: true;
+    dynamic: true;
+    layout: vertical;
 }
 
 mainbox {
@@ -45,8 +52,24 @@ mainbox {
   margin:             20px;
 }
 
-element {
-  background-color:   @background;
-  alternate-background-color: @background;
-  orientation:        horizontal;
+element-text {
+    expand: true;
+    horizontal-align: 0;
+    vertical-align: 0.5;
+    margin: 0% 0.25% 0% 0.25%;
+    text-color: @foreground;
+    background-color: @background;
+}
+
+element-text selected {
+    background-color: @active-background;
+    text-color: @active-foreground;
+}
+
+element selected {
+    background-color: @active-background;
+    text-color: @active-foreground;
+    border: 0% 0% 0% 0%;
+    border-radius: 0px;
+    border-color: @active-background;
 }

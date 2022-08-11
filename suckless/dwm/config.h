@@ -56,7 +56,6 @@ static const Rule rules[] = {
 	{ "Gimp",    NULL,     NULL,           0,         1,          -1 },
 	{ "Firefox", NULL,     NULL,           1 << 8,    0,          -1 },
 	{ "St",      NULL,     NULL,           0,         0,          -1 },
-	{ "qutebrowser",NULL,  NULL,					 1,        -1,          -1 },
 	{ NULL,       "spterm",    NULL,  SPTAG(0),  1,  -1 },
 	{ NULL,       "bpytop",    NULL,  SPTAG(1),  1,  -1 },
 	{ NULL,       "calcurse",  NULL,  SPTAG(2),  1,  -1 },
@@ -95,7 +94,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "rofi-application-launcher", NULL};
 static const char *termcmd[]  = { "st", NULL };
-static const char *browser[]  = { "google-chrome-stable", NULL };
+static const char *browser[]  = { "qutebrowser", NULL };
 static const char *powermenu[]  = { "rofi-powermenu", NULL };
 
 #include <X11/XF86keysym.h>

@@ -217,21 +217,21 @@ settings:
     global:
     - st
     - -e
-    - nnn
+    - lf
     - -p
     - '{}'
   fileselect.multiple_files.command:
     global:
     - st
     - -e
-    - nnn
+    - lf
     - -p
     - '{}'
   fileselect.single_file.command:
     global:
     - st
     - -e
-    - nnn
+    - lf
     - -p
     - '{}'
   fonts.default_family:
@@ -255,10 +255,10 @@ settings:
       right: 5
       top: 3
   url.default_page:
-    global: file:///home/ryan/.config/homepage/index.html
+    global: file:///home/ryan/.local/share/homepage/index.html
   url.searchengines:
     global:
       DEFAULT: https://duckduckgo.com/?q={}
   url.start_pages:
-    global: file:///home/ryan/.config/homepage/index.html
+    global: file:///home/ryan/.local/share/homepage/index.html
 

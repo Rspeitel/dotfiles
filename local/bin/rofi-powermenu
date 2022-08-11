@@ -9,11 +9,11 @@ uptime=$(uptime -p | sed -e 's/up //g')
 rofi_command="rofi -theme $dir/$theme"
 
 # Options
-shutdown="a\0icon\x1fsystem-shutdown-symbolic"
-reboot="b\0icon\x1fsystem-restart-symbolic"
-lock="c\0icon\x1fsystem-lock-screen-symbolic"
-suspend="d\0icon\x1fsystem-suspend-symbolic"
-logout="e\0icon\x1fsystem-log-out-symbolic"
+shutdown="Shutdown\0icon\x1fsystem-shutdown-symbolic"
+reboot="Reboot\0icon\x1fsystem-restart-symbolic"
+lock="Lock\0icon\x1fsystem-lock-screen-symbolic"
+suspend="Suspend\0icon\x1fsystem-suspend-symbolic"
+logout="Logout\0icon\x1fsystem-log-out-symbolic"
 
 # Message
 msg() {
@@ -25,7 +25,7 @@ options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
 
 chosen="$(echo -en "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 2)"
 
-if [ $chosen == "" ]; then
+if [[ ! " Shutdown Reboot Lock Suspend Logout " =~ " ${chosen} " ]]; then
   exit 0
 fi
 
@@ -36,19 +36,19 @@ if [[ $ans == "No" || $ans == "" ]]; then
 fi
 
 case $chosen
-  in a)
+  in Shutdown)
     systemctl poweroff
   ;;
-  b)
+  Reboot)
     systemctl reboot
   ;;
-  c)
+  Lock)
     # TODO: Implment lock
   ;;
-  d)
+  Suspend)
     systemctl suspend
   ;;
-  e)
+  Logout)
     kill -TERM $(pgrep -u $USER "\bdwm$") exit
   ;;
 esac
