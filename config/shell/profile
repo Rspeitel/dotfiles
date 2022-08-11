@@ -8,7 +8,7 @@ unsetopt PROMPT_SP
 # Default Programs
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="chrome-chrome-stable"
+export BROWSER="qutebrowser"
 
 # Clean-up files in the home directory:
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -20,6 +20,10 @@ export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export ANDROID_SDK_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/android"
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+export NPM_CONFIG_INIT_MODULE="${$XDG_DATA_HOME:-$HOME/.local/share}/npm"
+export NPM_CONFIG_CACHE="${$XDG_CACHE_HOME:-$HOME/.cache}/npm"
+export NPM_CONFIG_USERCONFIG="${$XDG_CONFIG_HOME:-$HOME/.config}/npm"
+export FREE_CAD_USER_HOME="${$XDG_CONFIG_HOME:-$HOME/.config}/FreeCAD"
 
 # Other Programs
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"

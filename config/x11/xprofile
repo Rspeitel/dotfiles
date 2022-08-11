@@ -2,8 +2,11 @@
 
 # This will log you into the graphical session
 
-~/.local/bin/setbg &
-~/.local/bin/remaps &
-xcompmgr &
+xrandr --output DP-1 --same-as HDMI-1 &
+xrandr --ouput DP-2 --right-of DP-1 &
+setbg &
+remaps &
 dwmblocks &
 dunst &
+set ip link set wlan0 down &
+netctl start WeablesWifiWetwork &

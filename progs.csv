@@ -36,15 +36,16 @@
 ,mutt,"is a terminal based mail client",0,"Mutt (Email)","st -n m -e mutt",mail
 ,calcurse,"is a terminal calendar client",0,"Calcurse (Calendar)",st -n cal -e calcurse",calendar
 ,dunst,"is for desktop notifications",1,,,
-,libgsf,"is required for joplin to install",0,,,
 ,zathura,"is a pdf viewer",0,"Zathura (PDF Viewer)",zathura,zathura
 ,qutebrowser,"is a vim controlled browser",1,"QuteBrowser",qutebrowser,qutebrowser
+,python-tldextract,"is required for lastpass qutebrowser plugin",0,,,
+,sysstat,"is mpstat required for dwmblocks cpu status",0,,,
 A,lf,"is a light weight flilemanager",0,"lf (File Manager)","st -n lf -e lf",file
 A,discord,"is another messaging service",0,"Discord",discord,discord
 A,zsh-fast-syntax-highlighting,"provides syntax highlighting for zsh",1,,
 A,zsh-history-substring-search,"provides zsh search history",1,,
 A,freecad,"is a free and open source cad program",0,"Freecad","freecad",freecad-daily
-A,joplin,"is a light weight note taking and todo editor",0,"Joplin (Note Taking)","joplin",joplin
+A,joplin-appimage,"is a light weight note taking and todo editor",0,"Joplin (Note Taking)","joplin-desktop",joplin
 A,google-chrome,"is my prefered browser",0,"Chrome (Web Broswer)","google-chrome-stable",google-chrome
 M,dwm,"is a windowm manager.",1,,,
 M,st,"is a terminal emulator.",1,,,
