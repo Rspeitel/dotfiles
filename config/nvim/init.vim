@@ -11,42 +11,26 @@ Plug 'junegunn/fzf', {'dir': '~/.local/share/fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
-Plug 'maximbaz/lightline-ale'
-Plug 'scrooloose/nerdtree'
-Plug 'joshdick/onedark.vim'
-Plug 'dense-analysis/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'Raimondi/delimitMate'
 Plug 'sheerun/vim-polyglot'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 "THEMEING
 syntax on
-colorscheme onedark
+colorscheme gruvbox
 let g:lightline = {
-  \ 'colorscheme': 'onedark',
+  \ 'colorscheme': 'gruvbox',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \            [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
-  \   'right': [ [  'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
-  \            ['lineinfo'],
+  \   'right': [ ['lineinfo'],
   \            ['percent'],
   \            [ 'fileformat', 'fileencoding', 'filetype'] ]
   \ },
-  \ 'component_expand': {
-  \    'linter_checking': 'lightline#ale#checking',
-  \    'linter_warnings': 'lightline#ale#warnings',
-  \    'linter_errors': 'lightline#ale#errors',
-  \    'linter_ok': 'lightline#ale#ok',
-  \ },
-  \ 'component_type': {
-  \     'linter_checking': 'left',
-  \     'linter_warnings': 'warning',
-  \     'linter_errors': 'error',
-  \     'linter_ok': 'left',
-  \ },
   \ 'component_function': {
-  \   'gitbranch': 'fugitive#head'
+  \   'gitbranch': 'FugitiveHead'
   \ },
   \
   \ }
@@ -100,7 +84,7 @@ nnoremap <C-A-H> :vertical resize -10<CR>
 nnoremap <C-A-L> :vertical resize +10<CR>
 nnoremap <C-A-J> :resize -10<CR>
 nnoremap <C-A-K> :resize +10<CR>
-nnoremap <C-M> :vsp<CR>
+nnoremap <CR> :vsp<CR>
 nnoremap <C-N> :split<CR>
 
 "OPEN QUICKFIX AFTER GREP"

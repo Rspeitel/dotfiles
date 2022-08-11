@@ -33,7 +33,6 @@
 ,steam,"is a game launcher",0,"Steam",steam,steam
 ,nvidia,"is a graphics driver for nvidia gpus",1,,,
 ,nvidia-settings,"is a graphics driver for nvidia gpus",1,"Nvidia Settings",nvidia-settings,nvidia
-,mutt,"is a terminal based mail client",0,"Mutt (Email)","st -n m -e mutt",mail
 ,calcurse,"is a terminal calendar client",0,"Calcurse (Calendar)",st -n cal -e calcurse",calendar
 ,dunst,"is for desktop notifications",1,,,
 ,zathura,"is a pdf viewer",0,"Zathura (PDF Viewer)",zathura,zathura

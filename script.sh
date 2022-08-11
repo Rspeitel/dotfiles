@@ -83,7 +83,7 @@ maininstall() { # Installs all needed programs from main repo.
 
 makeinstall() {
 	progname=$1
-	dir="/home/$name/.suckless/$progname"
+	dir="$repopath/suckless/$progname"
 	dialog --title "Installation" --infobox "Installing \`$progname\` ($n of $total) via \`make\`. $2" 5 70
 	cd "$dir" || exit 1
 	make >/dev/null 2>&1

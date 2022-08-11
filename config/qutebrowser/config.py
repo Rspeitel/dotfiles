@@ -1,5 +1,11 @@
 # gruvbox dark hard qutebrowser theme by Florian Bruhin <me@the-compiler.org>
 #
+
+config.load_autoconfig(False);
+config.set('fonts.default_family', "Hack")
+config.set('fonts.default_size', "12pt")
+config.set('url.start_pages', "file:///home/ryan/.local/share/homepage/index.html")
+
 # Originally based on:
 #   base16-qutebrowser (https://github.com/theova/base16-qutebrowser)
 #   Base16 qutebrowser template by theova and Daniel Mulford

@@ -11,6 +11,8 @@ config/ncspot/userstate.toml
 config/bpytop/error.log
 config/pulse
 config/filezilla
+config/qutebrowser/bookmarks
+config/qutebrowser/quickmarks
 
 # Local
 local/share/cargo
