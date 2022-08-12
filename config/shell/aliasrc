@@ -4,3 +4,6 @@
 [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
 
 alias freecad="freecad -u "$XDG_CONFIG_HOME"/FreeCAD/user.cfg -s "$XDG_CONFIG_HOME"/FreeCAD/system.cfg"
+alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
+alias rm='trash-rm'
+

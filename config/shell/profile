@@ -32,8 +32,6 @@ export QT_STYLE_OVERRIDE=kvantum
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
 
-alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
-
 # Start graphical server on user's current tty if not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
 
