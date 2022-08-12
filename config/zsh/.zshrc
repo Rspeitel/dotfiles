@@ -24,7 +24,7 @@ HISTFILE=~/.cache/zsh/history
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# . $HOME/.local/share/asdf/asdf.sh
+[ -f ~/.local/share/asdf/asdf.sh ] && . $HOME/.local/share/asdf/asdf.sh
 
 # Basic auto/tab complete:
 autoload -U compinit

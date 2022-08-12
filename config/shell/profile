@@ -20,10 +20,10 @@ export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export ANDROID_SDK_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/android"
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
-export NPM_CONFIG_INIT_MODULE="${$XDG_DATA_HOME:-$HOME/.local/share}/npm"
-export NPM_CONFIG_CACHE="${$XDG_CACHE_HOME:-$HOME/.cache}/npm"
-export NPM_CONFIG_USERCONFIG="${$XDG_CONFIG_HOME:-$HOME/.config}/npm"
-export FREE_CAD_USER_HOME="${$XDG_CONFIG_HOME:-$HOME/.config}/FreeCAD"
+export NPM_CONFIG_INIT_MODULE="${XDG_DATA_HOME:-$HOME/.local/share}/npm"
+export NPM_CONFIG_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/npm"
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm"
+export FREE_CAD_USER_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/FreeCAD"
 
 # Setup themeing
 export QT_STYLE_OVERRIDE=kvantum
