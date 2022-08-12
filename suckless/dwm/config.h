@@ -4,10 +4,10 @@
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 1;        /* 1 means swallow floating windows by default */
-static const unsigned int gappih    = 20;       /* horiz inner gap between windows */
+static const unsigned int gappih    = 0;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
 static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 10;       /* vert outer gap between windows and screen edge */
+static const unsigned int gappov    = 20;       /* vert outer gap between windows and screen edge */
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -125,19 +125,21 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,         XK_BackSpace,  spawn,          {.v = powermenu} },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	/* Spawning program related commands */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_f,      spawn,          {.v = browser } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.ui = 0 } },
 	{ MODKEY,                       XK_F2,     togglescratch,  {.ui = 1 } },
-	{ MODKEY,                       XK_z,      togglescratch,  {.ui = 2 } },
-	{ MODKEY,                       XK_F1,     togglescratch,  {.ui = 3 } },
-	{ MODKEY,                       XK_w,      killclient,     {0} },
-	/* Audoio buttons */
-	{ 0, XF86XK_AudioMute,          spawn,    SHCMD("pamixer -t; kill -35 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioRaiseVolume,   spawn,    SHCMD("pamixer --allow-boost -i 3; kill -35 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioLowerVolume,   spawn,    SHCMD("pamixer --allow-boost -d 3; kill -35 $(pidof dwmblocks)") },
+{ MODKEY,                       XK_z,      togglescratch,  {.ui = 2 } },
+{ MODKEY,                       XK_F1,     togglescratch,  {.ui = 3 } },
+{ MODKEY,                       XK_w,      killclient,     {0} },
+/* Audoio buttons */
+{ 0, XF86XK_AudioMute,          spawn,    SHCMD("pamixer -t; kill -35 $(pidof dwmblocks)") },
+{ 0, XF86XK_AudioRaiseVolume,   spawn,    SHCMD("pamixer --allow-boost -i 3; kill -35 $(pidof dwmblocks)") },
+{ 0, XF86XK_AudioLowerVolume,   spawn,    SHCMD("pamixer --allow-boost -d 3; kill -35 $(pidof dwmblocks)") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
