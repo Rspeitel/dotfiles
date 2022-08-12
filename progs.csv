@@ -39,7 +39,7 @@
 ,qutebrowser,"is a vim controlled browser",1,"QuteBrowser",qutebrowser,qutebrowser
 ,python-tldextract,"is required for lastpass qutebrowser plugin",0,,,
 ,sysstat,"is mpstat required for dwmblocks cpu status",0,,,
-,gnucash,"is a accounting software",0,"GnuCash",gnucash,gnucash
+,gnucash,"is a accounting software",0,"GnuCash",gnucash,gnucash-icon
 ,spotifyd,"is a spotify dameon for playing spotify",0,,,
 A,spotify-qt,"is a spotify app for controlling the spotify dameon",0,"Spotify",spotify-qt,spotify
 ,rclone,"manages and stores files on the cloud automagically",1,,,
