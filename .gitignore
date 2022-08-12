@@ -17,10 +17,10 @@ config/dconf
 config/QtProject.conf
 
 # Qbittorrent
-config/qbittorrent/categories.json
-config/qbittorrent/rss
-config/qbittorrent/watched_folders.json
-config/qbittorrent/qBittorrent-data.conf
+config/qBittorrent/categories.json
+config/qBittorrent/rss
+config/qBittorrent/watched_folders.json
+config/qBittorrent/qBittorrent-data.conf
 
 #Joplin Desktop
 config/Joplin
