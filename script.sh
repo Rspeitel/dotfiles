@@ -9,7 +9,7 @@
 [ -z "$aurhelper" ] && aurhelper="yay"
 [ -z "$repobranch" ] && repobranch="master"
 [ -z "$repopath" ] && repopath="/home/ryan/arch"
-[ -z "$skipnonrequired" ] && $skipnonrequired=true
+[ -z "$skipnonrequired" ] && skipnonrequired=true
 # TODO: Add directory of all the things to base it off of
 
 ### FUNCTIONS ###
@@ -108,7 +108,7 @@ installationloop() { \
 	aurinstalled=$(pacman -Qqm)
 	while IFS=, read -r tag program comment required title command icon; do
 		n=$((n+1))
-		if !(($required))
+		if [[ !(($required)) && (($skipnonrequired)) ]]
 		then
 			continue
 		fi
@@ -155,7 +155,7 @@ preinstallmsg || error "User exited."
 # Sym link all the files
 mkdir "/home/$name/.local/share"
 ln -s "$repopath/local/bin" "/home/$name/.local"
-ln -s "$repopath/local/share/*" "/home/$name/.local/share"
+ln -s "$repopath/local/share/"* "/home/$name/.local/share"
 ln -s "$repopath/config" "/home/$name/.config"
 ln -s "$repopath/config/x11/xprofile" "/home/$name/.xprofile"
 ln -s "$repopath/config/shell/profile" "/home/$name/.zprofile"
