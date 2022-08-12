@@ -5,12 +5,10 @@
 
 ### OPTIONS AND VARIABLES ###
 
-[ -z "$archrepo" ] && archrepo="https://github.com/rspeitel/arch.git"
 [ -z "$aurhelper" ] && aurhelper="yay"
 [ -z "$repobranch" ] && repobranch="master"
-[ -z "$repopath" ] && repopath="/home/ryan/arch"
+[ -z "$repopath" ] && repopath="/home/ryan/dotfiles"
 [ -z "$skipnonrequired" ] && skipnonrequired=true
-# TODO: Add directory of all the things to base it off of
 
 ### FUNCTIONS ###
 
@@ -108,7 +106,7 @@ installationloop() { \
 	aurinstalled=$(pacman -Qqm)
 	while IFS=, read -r tag program comment required title command icon; do
 		n=$((n+1))
-		if [[ !(($required)) && (($skipnonrequired)) ]]
+		if [[ $required == 0 && $skipnonrequired == true ]];
 		then
 			continue
 		fi
