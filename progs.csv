@@ -42,6 +42,8 @@
 ,gnucash,"is a accounting software",0,,,
 ,spotifyd,"is a spotify dameon for playing spotify",0,,,
 ,spotify-qt,"is a spotify app for controlling the spotify dameon",0,"Spotify",spotify-qt,spotify
+,rclone,"manages and stores files on the cloud automagically",1,,,
+,darktable,"is a raw photoediting powerhouse",0,"Darktable",darktable,darktable
 A,qbittorrent-git,"is a torrent client",0,"qBittorrent",qbittorrent,qbittorrent
 A,kvantum,"is needed for themeing",1,,,
 A,lf,"is a light weight flilemanager",0,"lf (File Manager)","st -n lf -e lf",file

@@ -37,16 +37,16 @@ fi
 
 case $chosen
   in Shutdown)
-    systemctl poweroff
+    sudo systemctl poweroff
   ;;
   Reboot)
-    systemctl reboot
+    sudo systemctl reboot
   ;;
   Lock)
     # TODO: Implment lock
   ;;
   Suspend)
-    systemctl suspend
+    sudo systemctl suspend
   ;;
   Logout)
     kill -TERM $(pgrep -u $USER "\bdwm$") exit
