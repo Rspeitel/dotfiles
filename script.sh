@@ -8,7 +8,7 @@
 [ -z "$aurhelper" ] && aurhelper="yay"
 [ -z "$repobranch" ] && repobranch="master"
 [ -z "$repopath" ] && repopath="/home/ryan/dotfiles"
-[ -z "$skipnonrequired" ] && skipnonrequired=true
+[ -z "$skipnonrequired" ] && skipnonrequired=false
 
 ### FUNCTIONS ###
 

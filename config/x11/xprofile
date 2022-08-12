@@ -8,5 +8,3 @@ setbg &
 remaps &
 dwmblocks &
 dunst &
-set ip link set wlan0 down &
-netctl start WeablesWifiWetwork &
