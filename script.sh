@@ -214,7 +214,7 @@ EndSection' > /etc/X11/xorg.conf.d/40-libinput.conf
 # This line, overwriting the `newperms` command above will allow the user to run
 # serveral important commands, `shutdown`, `reboot`, updating, etc. without a password.
 newperms "%wheel ALL=(ALL) ALL #MyScript
-%wheel ALL=(ALL) NOPASSWD: /usr/bin/shutdown,/usr/bin/reboot,/usr/bin/systemctl start,user/bin/systemctl reboot, user/bin/systemctl poweroff,user/bin/systemctl suspend,/usr/bin/mount,/usr/bin/umount,/usr/bin/pacman,/usr/bin/yay"
+%wheel ALL=(ALL) NOPASSWD: /usr/bin/shutdown,/usr/bin/reboot,/usr/bin/systemctl start,/user/bin/systemctl reboot,/user/bin/systemctl poweroff,/user/bin/systemctl suspend,/usr/bin/mount,/usr/bin/umount,/usr/bin/pacman,/usr/bin/yay"
 
 mkdir "/home/$name/Documents"
 mkdir "/home/$name/Screenshots"

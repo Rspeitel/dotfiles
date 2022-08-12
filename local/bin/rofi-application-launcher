@@ -25,7 +25,7 @@ while IFS=, read -r tag program comment needed title execc icon; do
     arr_rofi+=("$title\0icon\x1f$icon")
     arr_choice["$title"]="$execc"
   fi
-done < ~/arch/progs.csv
+done < ~/dotfiles/progs.csv
 
 choice=$(echo -en "$(printf "%s\n" "${!arr_rofi[@]}")" | $rofi_command)
 
