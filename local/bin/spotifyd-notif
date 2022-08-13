@@ -1,14 +1,26 @@
-#!bin/sh
+#!/bin/sh
 
-fmtout='{{ title }}
-{{ artist }}
-{{ album }}'
+user_id=e64bbd10522349239ccf3178284990e0
+secret_id=1ec7791d015a4a3db56f94663edbf127
 
-if [ "$PLAYER_EVENT" = "start" ] || [ "$PLAYER_EVENT" = "change" ];
+myToken=$(curl -s -X 'POST' -u $user_id:$secret_id -d grant_type=client_credentials https://accounts.spotify.com/api/token | jq '.access_token' | cut -d\" -f2)
+RESULT=$?
+
+if [ "$PLAYER_EVENT" = "start" ];
 then
-    trackData=$(playerctl -p spotifyd metadata --format "${fmtout}" | sed 's/\&/\&amp;/g; s/</\&lt;/g')
-    trackTitle=$(echo "${trackData}" | head -1)
-    trackArtist=$(echo "${trackData}" | tail -2 | head -1)
-    trackAlbum=$(echo "${trackData}" | tail -1)
-    notify-send "spotifyd" " <b>$trackTitle</b>"'\n'" $trackArtist"'\n'" $trackAlbum"
+    if [ $RESULT -eq 0 ]; then
+        curl -s -X 'GET' https://api.spotify.com/v1/tracks/$TRACK_ID -H 'Accept: application/json' -H 'Content-Type: application/json' -H "Authorization:\"Bearer $myToken\"" | jq '.name, .artists[].name, .album.name' | xargs printf "'%s'\n '%s'\n '%s'" | xargs notify-send --urgency=low --expire-time=3000 --icon=/usr/share/icons/hicolor/scalable/apps/spotify-qt.svg --app-name=spotifyd spotifyd
+    else
+        echo "Cannot get token."
+    fi
+elif [ "$PLAYER_EVENT" = "change" ];
+then
+    if [ $RESULT -eq 0 ]; then
+        curl -s -X 'GET' https://api.spotify.com/v1/tracks/$TRACK_ID -H 'Accept: application/json' -H 'Content-Type: application/json' -H "Authorization:\"Bearer $myToken\"" | jq '.name, .artists[].name, .album.name' | xargs printf "'%s' \n '%s' \n '%s'" | xargs notify-send --urgency=low --expire-time=3000 --icon=/usr/share/icons/hicolor/scalable/apps/spotify-qt.svg --app-name=spotifyd spotifyd
+    else
+        echo "Cannot get token."
+    fi
+else
+    echo "Unkown event."
 fi
+

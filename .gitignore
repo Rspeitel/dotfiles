@@ -15,6 +15,8 @@ config/qutebrowser/bookmarks
 config/qutebrowser/quickmarks
 config/dconf
 config/QtProject.conf
+config/darktable
+config/rclone
 
 # Qbittorrent
 config/qBittorrent/categories.json
@@ -29,6 +31,8 @@ config/joplin-desktop/cache
 config/joplin-desktop/resources
 config/joplin-desktop/tmp
 config/joplin-desktop/log.txt
+config/joplin-desktop/plugins
+config/joplin-desktop/plugin-data
 
 # Local
 local/share/cargo

@@ -30,9 +30,11 @@
 		"viewer"
 	],
 	"theme": 2,
-	"editor.codeView": true,
+	"editor.codeView": false,
 	"richTextBannerDismissed": true,
 	"dateFormat": "YYYY.MM.DD",
 	"editor.keyboardMode": "vim",
-	"style.editor.fontSize": 12
+	"style.editor.fontSize": 12,
+	"notes.sortOrder.field": "user_updated_time",
+	"notes.sortOrder.reverse": true
 }
