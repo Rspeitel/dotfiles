@@ -1,0 +1,40 @@
+{
+	"$schema": "https://joplinapp.org/schema/settings.json",
+	"locale": "en_US",
+	"api.token": "6eac2179d253cdf503b3b44aabe1789930f47c7031d49f7765bb7c33c9a6ae3266c96d7458a32f37990ce58ea8a47f408a2e8514402442739e21dbe68a25ad8b",
+	"markdown.plugin.softbreaks": false,
+	"markdown.plugin.typographer": false,
+	"spellChecker.language": "en-US",
+	"ui.layout": {
+		"key": "root",
+		"children": [
+			{
+				"key": "sideBar",
+				"width": 196,
+				"visible": true
+			},
+			{
+				"key": "noteList",
+				"width": 249,
+				"visible": true
+			},
+			{
+				"key": "editor",
+				"visible": true
+			}
+		],
+		"visible": true
+	},
+	"noteVisiblePanes": [
+		"editor",
+		"viewer"
+	],
+	"theme": 2,
+	"editor.codeView": false,
+	"richTextBannerDismissed": true,
+	"dateFormat": "YYYY.MM.DD",
+	"editor.keyboardMode": "vim",
+	"style.editor.fontSize": 12,
+	"notes.sortOrder.field": "user_updated_time",
+	"notes.sortOrder.reverse": true
+}

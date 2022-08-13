@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+# Thanks to Aditya Shakya for the basics of this script and rofi themes
+
+theme="powermenu.rasi"
+dir="$HOME/.config/rofi/"
+
+uptime=$(uptime -p | sed -e 's/up //g')
+
+rofi_command="rofi -theme $dir/$theme"
+
+# Options
+shutdown="Shutdown\0icon\x1fsystem-shutdown-symbolic"
+reboot="Reboot\0icon\x1fsystem-restart-symbolic"
+lock="Lock\0icon\x1fsystem-lock-screen-symbolic"
+suspend="Suspend\0icon\x1fsystem-suspend-symbolic"
+logout="Logout\0icon\x1fsystem-log-out-symbolic"
+
+# Message
+msg() {
+  echo -en "Yes\nNo" | rofi -theme "$dir/message.rasi" -dmenu -selected-row 1
+}
+
+# Variable passed to rofi
+options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
+
+chosen="$(echo -en "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 2)"
+
+if [[ ! " Shutdown Reboot Lock Suspend Logout " =~ " ${chosen} " ]]; then
+  exit 0
+fi
+
+ans="$(msg)"
+
+if [[ $ans == "No" || $ans == "" ]]; then
+  exit 0
+fi
+
+case $chosen
+  in Shutdown)
+    sudo systemctl poweroff
+  ;;
+  Reboot)
+    sudo systemctl reboot
+  ;;
+  Lock)
+    # TODO: Implment lock
+  ;;
+  Suspend)
+    sudo systemctl suspend
+  ;;
+  Logout)
+    kill -TERM $(pgrep -u $USER "\bdwm$") exit
+  ;;
+esac
+

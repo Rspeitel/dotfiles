@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# This will log you into the graphical session
+
+xrandr --output DP-1 --same-as HDMI-1 &
+xrandr --ouput DP-2 --right-of DP-1 &
+setbg &
+remaps &
+dwmblocks &
+dunst &

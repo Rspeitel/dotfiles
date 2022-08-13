@@ -1,0 +1,117 @@
+/* RASI Theme */
+
+configuration {
+  font:                  "Hack 12";
+  icon-theme:            "file://~/.local/bin/icons";
+  show-icons:            true;
+  drun-display-format:   "{name}";
+  disable-history:       false;
+  fullscreen:            false;
+  hide-scrollbar:        true;
+  sidebar-mode:          false;
+}
+
+@import "colors.rasi"
+
+window {
+    background-color: @background;
+    text-color: @foreground;
+    border: 0px;
+    border-color: @border-color;
+    border-radius: 0px;
+    width: 35%;
+    location: center;
+    x-offset: 0;
+    y-offset: 0;
+}
+
+prompt {
+    enabled: true;
+    padding: 0.30% 1% 0% -0.5%;
+    background-color: @foreground;
+    text-color: @background;
+    font: "Hack 12";
+}
+
+entry {
+    background-color: @foreground;
+    text-color: @background;
+    placeholder-color: @background;
+    expand: true;
+    horizontal-align: 0;
+    placeholder: "Search";
+    padding: 0.10% 0% 0% 0%;
+    blink: true;
+}
+
+inputbar {
+    children: [ prompt, entry ];
+    background-color: @foreground;
+    text-color: @background;
+    expand: false;
+    border: 0% 0% 0% 0%;
+    border-radius: 0px;
+    border-color: @bordercolor;
+    margin: 0% 0% 0% 0%;
+    padding: 1.5%;
+}
+
+listview {
+    background-color: @foreground;
+    padding: 0px;
+    columns: 2;
+    lines: 4;
+    spacing: 0%;
+    cycle: true;
+    dynamic: true;
+    layout: vertical;
+}
+
+mainbox {
+    background-color: @foreground;
+    border: 0% 0% 0% 0%;
+    border-radius: 0% 0% 0% 0%;
+    border-color: @bordercolor;
+    children: [ inputbar, listview ];
+    spacing: 0%;
+    padding: 0%;
+}
+
+element {
+    background-color: @background;
+    text-color: @foreground;
+    orientation: horizontal;
+    border-radius: 0%;
+    padding: 1% 0.5% 1% 0.5%;
+}
+
+element-icon {
+    size: 36px;
+    border: 0px;
+}
+
+element-icon selected {
+    background-color: @active-background;
+}
+
+element-text {
+    expand: true;
+    horizontal-align: 0;
+    vertical-align: 0.5;
+    margin: 0% 0.25% 0% 0.25%;
+    text-color: @foreground;
+    background-color: @background;
+}
+
+element-text selected {
+    background-color: @active-background;
+    text-color: @active-foreground;
+}
+
+element selected {
+    background-color: @active-background;
+    text-color: @active-foreground;
+    border: 0% 0% 0% 0%;
+    border-radius: 0px;
+    border-color: @active-background;
+}

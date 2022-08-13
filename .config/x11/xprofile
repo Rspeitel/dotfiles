@@ -1,9 +1,0 @@
-#!/bin/sh
-
-# This will log you into the graphical session
-
-setbg &
-remaps &
-xcompmgr &
-dwmblocks &
-dunst &

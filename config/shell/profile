@@ -1,0 +1,39 @@
+#!/bin/zsh
+
+# Adds `~/.local/bin` to $PATH
+export PATH="$PATH:${$(find ~/dotfiles/local/bin -type d -printf %p:)%%:}"
+
+unsetopt PROMPT_SP
+
+# Default Programs
+export EDITOR="nvim"
+export TERMINAL="st"
+export BROWSER="qutebrowser"
+
+# Clean-up files in the home directory:
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XINITRC="${XDG_CONFIG_HOME:-$HOME/.config}/x11/xinitrc"
+export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
+export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
+export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
+export ANDROID_SDK_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/android"
+export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+export NPM_CONFIG_INIT_MODULE="${XDG_DATA_HOME:-$HOME/.local/share}/npm"
+export NPM_CONFIG_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/npm"
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm"
+export FREE_CAD_USER_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/FreeCAD"
+
+# Setup themeing
+export QT_STYLE_OVERRIDE=kvantum
+
+# Other Programs
+export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
+export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
+
+# Start graphical server on user's current tty if not already running.
+[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
+
+# Switch escape and caps if tty and no passwd required:
+sudo -n loadkeys ${XDG_DATA_HOME:-$HOME/.local/share}/ttymaps.kmap 2>/dev/null

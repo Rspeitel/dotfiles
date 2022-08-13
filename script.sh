@@ -5,9 +5,10 @@
 
 ### OPTIONS AND VARIABLES ###
 
-[ -z "$archrepo" ] && archrepo="https://github.com/rspeitel/arch.git"
 [ -z "$aurhelper" ] && aurhelper="yay"
 [ -z "$repobranch" ] && repobranch="master"
+[ -z "$repopath" ] && repopath="/home/ryan/dotfiles"
+[ -z "$skipnonrequired" ] && skipnonrequired=false
 
 ### FUNCTIONS ###
 
@@ -80,7 +81,7 @@ maininstall() { # Installs all needed programs from main repo.
 
 makeinstall() {
 	progname=$1
-	dir="/home/$name/.suckless/$progname"
+	dir="$repopath/suckless/$progname"
 	dialog --title "Installation" --infobox "Installing \`$progname\` ($n of $total) via \`make\`. $2" 5 70
 	cd "$dir" || exit 1
 	make >/dev/null 2>&1
@@ -100,11 +101,15 @@ pipinstall() { \
 	}
 
 installationloop() { \
-	cp /home/$name/progs.csv /tmp/progs.csv
+	cp $repopath/progs.csv /tmp/progs.csv
 	total=$(wc -l < /tmp/progs.csv)
 	aurinstalled=$(pacman -Qqm)
-	while IFS=, read -r tag program comment; do
+	while IFS=, read -r tag program comment required title command icon; do
 		n=$((n+1))
+		if [[ $required == 0 && $skipnonrequired == true ]];
+		then
+			continue
+		fi
 		echo "$comment" | grep -q "^\".*\"$" && comment="$(echo "$comment" | sed "s/\(^\"\|\"$\)//g")"
 		case "$tag" in
 			"A") aurinstall "$program" "$comment" ;;
@@ -113,16 +118,6 @@ installationloop() { \
 			*) maininstall "$program" "$comment" ;;
 		esac
 	done < /tmp/progs.csv ;}
-
-putgitrepo() { # Downloads a gitrepo $1 and places the files in $2 only overwriting conflicts
-	dialog --infobox "Downloading and installing config files..." 4 60
-	[ -z "$3" ] && branch="master" || branch="$repobranch"
-	dir=$(mktemp -d)
-	[ ! -d "$2" ] && mkdir -p "$2"
-	chown "$name":wheel "$dir" "$2"
-	sudo -u "$name" git clone --recursive -b "$branch" --depth 1 --recurse-submodules "$1" "$dir" >/dev/null 2>&1
-	sudo -u "$name" cp -rfT "$dir" "$2"
-	}
 
 systembeepoff() { dialog --infobox "Getting rid of the error beep sound..." 10 50
 	rmmod pcspkr
@@ -154,10 +149,23 @@ preinstallmsg || error "User exited."
 
 ### The rest of the script requires no user input.
 
+# Install the dotfiles in the user's home directory
+# Sym link all the files
+mkdir "/home/$name/.local/share"
+ln -s "$repopath/local/bin" "/home/$name/.local"
+ln -s "$repopath/local/share/"* "/home/$name/.local/share"
+ln -s "$repopath/config" "/home/$name/.config"
+ln -s "$repopath/config/x11/xprofile" "/home/$name/.xprofile"
+ln -s "$repopath/config/shell/profile" "/home/$name/.zprofile"
+
+chown -R $name "/home/$name/.local"
+chown -R $name "/home/$name/.config"
+chown -R $name "/home/$name/arch"
+
 # Refresh Arch keyrings.
 refreshkeys || error "Error automatically refreshing Arch keyring. Consider doing so manually."
 
-for x in curl base-devel git ntp zsh; do
+for x in curl base-devel ntp zsh; do
 	dialog --title "Installation" --infobox "Installing \`$x\` which is required to install and configure other programs." 5 70
 	installpkg "$x"
 done
@@ -171,20 +179,10 @@ adduserandpass || error "Error adding username and/or password."
 # in a fakeroot environment, this is required for all builds with AUR.
 newperms "%wheel ALL=(ALL) NOPASSWD: ALL"
 
-# Make pacman and yay colorful and adds eye candy on the progress bar because why not.
-grep -q "^Color" /etc/pacman.conf || sed -i "s/^#Color$/Color/" /etc/pacman.conf
-grep -q "ILoveCandy" /etc/pacman.conf || sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
-
 # Use all cores for compilation.
 sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
 
 manualinstall $aurhelper || error "Failed to install AUR helper."
-
-# Install the dotfiles in the user's home directory
-putgitrepo "$archrepo" "/home/$name" "$repobranch"
-rm -f "/home/$name/README.md"
-# make git ignore deleted LICENSE & README.md files
-git update-index --assume-unchanged "/home/$name/README.md"
 
 # The command that does all the installing. Reads the progs.csv file and
 # installs each needed program the way required. Be sure to run this only after
@@ -214,12 +212,12 @@ EndSection' > /etc/X11/xorg.conf.d/40-libinput.conf
 # This line, overwriting the `newperms` command above will allow the user to run
 # serveral important commands, `shutdown`, `reboot`, updating, etc. without a password.
 newperms "%wheel ALL=(ALL) ALL #MyScript
-%wheel ALL=(ALL) NOPASSWD: /usr/bin/shutdown,/usr/bin/reboot,/usr/bin/systemctl start,/usr/bin/mount,/usr/bin/umount,/usr/bin/pacman,/usr/bin/yay"
+%wheel ALL=(ALL) NOPASSWD: /usr/bin/shutdown,/usr/bin/reboot,/usr/bin/systemctl start,/user/bin/systemctl reboot,/user/bin/systemctl poweroff,/user/bin/systemctl suspend,/usr/bin/mount,/usr/bin/umount,/usr/bin/pacman,/usr/bin/yay"
 
-mkdir '/home/$name/Documents'
-mkdir '/home/$name/Screenshots'
-mkdir '/home/$name/Mail'
-mkdir '/home/$name/Downloads'
+mkdir "/home/$name/Documents"
+mkdir "/home/$name/Screenshots"
+mkdir "/home/$name/Downloads"
+mkdir "/home/$name/Storage"
 
 # Last message! Install complete!
 finalize

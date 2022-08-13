@@ -1,0 +1,75 @@
+/* Confirm Dialog */
+
+
+configuration {
+  font:                  "Hack 12";
+  icon-theme:            "Papirus-Light";
+  show-icons:            false;
+  drun-display-format:   "{name}";
+  disable-history:       false;
+  fullscreen:            false;
+  hide-scrollbar:        true;
+  sidebar-mode:          false;
+}
+
+@import "colors.rasi"
+
+window {
+    background-color: @background;
+    text-color: @foreground;
+    border: 0px;
+    border-color: @border-color;
+    border-radius: 0px;
+    width: 35%;
+    location: center;
+    x-offset: 0;
+    y-offset: 0;
+}
+
+textbox {
+  expand:               false;
+  str:                  "Are you sure?";
+  background-color:     @background;
+  text-color:           @foreground;
+  margin:               10px;
+}
+
+listview {
+    background-color: @foreground;
+    padding: 0px;
+    columns: 1;
+    lines: 2;
+    spacing: 0%;
+    cycle: true;
+    dynamic: true;
+    layout: vertical;
+}
+
+mainbox {
+  background-color:   @background;
+  children:           [ textbox, listview ];
+  width:              3px;
+  margin:             20px;
+}
+
+element-text {
+    expand: true;
+    horizontal-align: 0;
+    vertical-align: 0.5;
+    margin: 0% 0.25% 0% 0.25%;
+    text-color: @foreground;
+    background-color: @background;
+}
+
+element-text selected {
+    background-color: @active-background;
+    text-color: @active-foreground;
+}
+
+element selected {
+    background-color: @active-background;
+    text-color: @active-foreground;
+    border: 0% 0% 0% 0%;
+    border-radius: 0px;
+    border-color: @active-background;
+}
