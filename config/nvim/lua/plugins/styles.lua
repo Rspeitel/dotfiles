@@ -1,4 +1,5 @@
 return {
+  { "elkowar/yuck.vim" },
   { "ellisonleao/gruvbox.nvim" },
 
   { 

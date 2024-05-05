@@ -38,6 +38,28 @@ return {
           }
         end,
 
+        -- ["ltex-ls"] = function()
+        --   local path = vim.fn.stdpath("config") .. "/spell/en.utf-8.add"
+        --   local words = {}
+
+        --   for word in io.open(path, "r"):lines() do
+        --     table.insert(words, word)
+        --   end
+
+        --   local lspconfig = require("lspconfig")
+        --   lspconfig.lua_ls.setup {
+        --     capabilities = capabilities,
+        --     settings = {
+        --       ltex = {
+        --         disabledRules = { ['en-US'] = { 'PROFANITY'} },
+        --         dictionary = {
+        --           ['en-US'] = { en = words }
+        --         }
+        --       }
+        --     }
+        --   }
+        -- end,
+
         ["lua_ls"] = function()
           local lspconfig = require("lspconfig")
           lspconfig.lua_ls.setup {
@@ -56,6 +78,7 @@ return {
 
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
     local luasnip = require 'luasnip'
+    local snip_loader = require('luasnip/loaders/from_vscode')
 
     cmp.setup({
       snippet = {
