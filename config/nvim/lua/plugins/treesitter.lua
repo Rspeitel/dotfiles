@@ -2,7 +2,8 @@ return {
   "nvim-treesitter/nvim-treesitter",
   opts = {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'lua', 'javascript', 'vimdoc', 'vim', 'rust', 'python', 'ruby' },
+    ensure_installed = { 'lua', 'javascript', 'vimdoc', 'vim', 'rust', 'ron', 'python', 'ruby' },
+    ignore_install = { 'help' },
 
     indent = { enable = true, disable = { 'python' } },
     highlight = {

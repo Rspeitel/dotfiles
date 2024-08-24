@@ -82,6 +82,11 @@ return {
     local snip_loader = require('luasnip/loaders/from_vscode')
 
     cmp.setup({
+      opts = function(_, opts)
+        -- Rustaceans support
+        opts.sources = opts.sources or {}
+        table.insert(opts.sources, { name = "crates"} )
+      end,
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body) -- For `luasnip` users.
