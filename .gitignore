@@ -1,4 +1,9 @@
 .gitconfig
+
+# Neovim
+config/nvim/lazy-lock.json
+
+
 # DWM Builds
 *.o
 # Extra .configs that we don't need to include

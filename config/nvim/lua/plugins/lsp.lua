@@ -27,6 +27,7 @@ return {
     require("mason").setup()
     require("mason-lspconfig").setup({
       ensure_installed = {
+        "ltex",
         "lua_ls",
         -- "rust_analyzer",
         -- "tsserver",
@@ -38,27 +39,27 @@ return {
           }
         end,
 
-        -- ["ltex-ls"] = function()
-        --   local path = vim.fn.stdpath("config") .. "/spell/en.utf-8.add"
-        --   local words = {}
+        ["ltex"] = function()
+          local path = vim.fn.stdpath("config") .. "/spell/en.utf-8.add"
+          local words = {}
 
-        --   for word in io.open(path, "r"):lines() do
-        --     table.insert(words, word)
-        --   end
+          for word in io.open(path, "r"):lines() do
+            table.insert(words, word)
+          end
 
-        --   local lspconfig = require("lspconfig")
-        --   lspconfig.lua_ls.setup {
-        --     capabilities = capabilities,
-        --     settings = {
-        --       ltex = {
-        --         disabledRules = { ['en-US'] = { 'PROFANITY'} },
-        --         dictionary = {
-        --           ['en-US'] = { en = words }
-        --         }
-        --       }
-        --     }
-        --   }
-        -- end,
+          local lspconfig = require("lspconfig")
+          lspconfig.ltex.setup {
+            capabilities = capabilities,
+            settings = {
+              ltex = {
+                disabledRules = { ['en-US'] = { 'PROFANITY'} },
+                dictionary = {
+                  ['en-US'] = words
+                }
+              }
+            }
+          }
+        end,
 
         ["lua_ls"] = function()
           local lspconfig = require("lspconfig")
