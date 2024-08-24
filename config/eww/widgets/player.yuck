@@ -1,0 +1,99 @@
+;; Begin Media Player Bar
+;; TODO: Play around with --players flag
+
+(deflisten song_name :initial "" "playerctl --follow metadata --format '{{ title }}'")
+(deflisten artist_name :inital "" "playerctl --follow metadata --format '{{ artist }}'")
+(deflisten cover_art :initial "" "./scripts/cover_art.sh" )
+(deflisten player_status :initial "" "playerctl --follow status" )
+
+; TODO: ADD PLACEHOLDER
+(defvar placeholder_path "tmp/placeholder")
+
+(defwidget inline-media-player []
+  (box 
+    :class "bar-item"
+    :space-evenly false
+    (button 
+      :onclick "playerctl next"
+      (image :path "${EWW_CONFIG_DIR}/icons/media-backward.svg")
+    )
+    (button
+      :onclick "${EWW_CMD} update active_modal=media-player"
+      (box
+        :space-evenly false
+        :orientation "horizontal"
+        (image
+          :width 20
+          :height 16
+          :space-evenly false
+          :class "cover-art" 
+          :path "${cover_art}"
+        )
+        (box 
+          :class "bar-item"
+          :orientation "vertical"
+          (label :limit-width 25 :text "${song_name}")
+          (label :limit-width 25 :text "${artist_name}" :style "font-size: 10px")
+        )
+      )
+    )
+    (button 
+      :onclick "playerctl play-pause"
+      (image :path "${EWW_CONFIG_DIR}/icons/${
+        player_status == 'Playing' ? 
+            'media-pause' :
+            'media-play'
+       }.svg"
+      )
+    )
+    (button 
+      :onclick "playerctl next"
+      (image :path "${EWW_CONFIG_DIR}/icons/media-forward.svg")
+    )
+  )
+)
+
+(defwindow media-player
+  :monitor 0
+  :stacking "fg"
+  :windowtype "dialog"
+  :geometry (geometry :anchor "top center" :y 8)
+  :exclusive false
+  :class "bar"
+  (revealer
+    :transition "slidedown"
+    :reveal {active_modal == "media-player" ? true : false}
+    (box
+      :space-evenly false
+      :orientation "vertical"
+      :class "bar"
+      (box
+        :height 200
+        :class "cover-art-large" 
+        :style "background-image: {url('${cover_art ?: placeholder_path}')"
+      )
+      (label :text "${song_name}" :style "font-size: 20px")
+      (label :text "${artist_name}" :style "font-size: 16px")
+      (box
+        (button 
+          :onclick "playerctl next"
+          (image :path "${EWW_CONFIG_DIR}/icons/media-backward.svg")
+        )
+        (button 
+          :onclick "playerctl play-pause"
+          (image :path "${EWW_CONFIG_DIR}/icons/${
+            player_status == 'Playing' ? 
+                'media-pause' :
+                'media-play'
+           }.svg"
+          )
+        )
+        (button 
+          :onclick "playerctl next"
+          (image :path "${EWW_CONFIG_DIR}/icons/media-forward.svg")
+        )
+      )
+    )
+  )
+)
+;; End Media Player Bar

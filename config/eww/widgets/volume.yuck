@@ -1,0 +1,39 @@
+;; Begin Volume Slider
+(defvar volume_hover_state false)
+(deflisten volume :inital "" "./scripts/volume.sh --volume")
+(deflisten mute_status :inital "" "./scripts/volume.sh --mute-status")
+
+(defwidget volume []
+  (eventbox
+    :onhover "${EWW_CMD} update volume_hover_state=true"
+    :onhoverlost "${EWW_CMD} update volume_hover_state=false"
+    (box
+      :class "bar-item"
+      :space-evenly "false"
+      (image 
+        :class "volume-mute"
+        :path "${EWW_CONFIG_DIR}/icons/${
+        !(mute_status ?: false) ? 
+        'audio-volume-muted' :
+        (volume ?: 0) > 75 ?
+        'audio-volume-high' :
+        (volume ?: 0) > 30 ?
+        'audio-volume-medium' :
+        'audio-volume-low'
+      }.svg")
+      (revealer 
+        :transition "slideleft"
+        :reveal volume_hover_state
+        :duration "350ms"
+        (scale
+          :onchange "./scripts/volume.sh --set-volume {}"
+          :min 0
+          :max 100
+          :value (volume ?: 0)
+          :width 100
+        )
+      )
+    )
+  )
+)
+;; End Volume Slider

@@ -1,0 +1,98 @@
+@import "./colors.scss";
+
+*{
+  background-color: $bg;
+  color: $fg;
+  font-family: $font;
+  font-size: $font_size;
+  padding: 0px 4px;
+  border: none;
+  border-radius: $general_radius;
+}
+
+window {
+  background-color: transparent;
+}
+
+// Global Styling
+button > label {
+  background-color: transparent;
+}
+
+button {
+  box-shadow: none;
+  padding: 0px;
+
+  &:hover {
+    background-color: $primary;
+    border: 1px solid $primary;
+  }
+}
+
+scale trough highlight {
+  background-image: linear-gradient(to right, $fg, $primary);
+}
+
+scale trough {
+  background-color: $fg;
+  border-radius: 16px;
+  min-height: 10px;
+  min-width: 70px;
+}
+
+scale slider {
+  min-height: 4px;
+  min-width: 4px;
+  border: 2px solid $bg;
+  border-radius: 50%;
+  background: $bg;
+}
+
+// Bar Styling
+.bar {
+  border-radius: $bar_radius; 
+  min-height: $bar_height;
+  min-width: 1692px;
+}
+
+.bar-item {
+  margin: 0px $space_between;
+}
+
+// System circle colors
+.temp { color: $red;}
+.ram { color: $purple; }
+.cpu { color: $yellow; }
+.storage { color: $blue; }
+.battery { color: $green; }
+
+// Cover art styling
+.cover-art {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.cover-art-large {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 8px;
+}
+
+// Seperator Styling
+.sep {
+  font-weight: bold;
+  font-size: $font_size_large;
+}
+
+.calendar {
+  padding: 0 4px;
+  border-radius: $general_radius;
+}
+
+.menu-closer {
+  background-color: transparent;
+}
+

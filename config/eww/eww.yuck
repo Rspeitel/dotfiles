@@ -1,0 +1,157 @@
+;; Global Variables/Config
+(defvar time_zone "America/Indianapolis")
+(defvar active_modal "none")
+
+;;Includes
+(include "./widgets/player.yuck")
+(include "./widgets/workspace.yuck")
+(include "./widgets/volume.yuck")
+(include "./widgets/system.yuck")
+
+
+;; Basic Layout
+(defwindow bar
+  :monitor 0
+  :stacking "fg"
+  :windowtype "dock"
+  :geometry (geometry :x "0" :y "4" :anchor "top center")
+  :exclusive true
+  :class "bar"
+  (bar_layout)
+)
+
+(defwidget bar_layout []
+  (box 
+    :orientation "horizontal"
+    :class "bar"
+    (start) (center) (end))
+)
+
+(defwidget start []
+	(box 
+    :orientation "horizontal" 
+    :space-evenly false  
+    :halign "start"
+    (workspaces)
+  )
+)
+
+(defwidget center []
+	(box 
+    :orientation "horizontal" 
+    :halign "center"
+    (inline-media-player)
+  )
+)
+
+(defwidget end []
+	(box 
+    :orientation "h" 
+    :space-evenly false  
+    :hexpand false
+    :halign "end"
+    (brightness)
+    (volume)
+    (sep)
+    (system)
+    (sep)
+    (clock)
+  )
+)
+
+;; Begin Widgets
+(defwidget sep []
+  (box :class "bar-item"
+    (label :class "sep" :text "|")
+  )
+)
+
+;; Begin Brightness Slider
+;; TODO: Update to take in and modify actual brightness
+(defvar brightness_hover_state false)
+(defpoll brightness_percent :interval "5s" "brightnessctl | grep 'Current brightness:' | awk '{print $3}'")
+(defwidget brightness []
+  (eventbox
+    :onhover "${EWW_CMD} update brightness_hover_state=true"
+    :onhoverlost "${EWW_CMD} update brightness_hover_state=false"
+    (box
+      :class "bar-item"
+      :space-evenly "false"
+      (image :path "${EWW_CONFIG_DIR}/icons/${
+        (brightness_percent ?: 0) > 128 ? 
+          "brightness-high" :
+          "brightness-low"
+        }.svg")
+      (revealer 
+        :transition "slideleft"
+        :reveal brightness_hover_state
+        :duration "350ms"
+        (scale
+          :min 0
+          :max 100
+          :value 25
+          :width 100
+        )
+      )
+    )
+  )
+)
+;; End Brightness Slider
+
+
+;; Begin Clock/Calendar
+(defvar clock_hover_state false)
+
+(defwidget clock []
+  (eventbox 
+    :onhover "${EWW_CMD} update clock_hover_state=true"
+    :onhoverlost "${EWW_CMD} update clock_hover_state=false"
+    (box
+      :class "bar-item"
+      :space-evenly "false"
+      (label :text "${formattime(EWW_TIME, '%I:%M %p', time_zone)}")
+      (revealer 
+        :transition "slideleft"
+        :reveal clock_hover_state
+        :duration "350ms"
+        (button 
+          :onclick "${EWW_CMD} open-many menu-closer calendar"
+          (label :text  "${formattime(EWW_TIME, '%D', time_zone)}")
+        )
+      )
+    )
+  )
+)
+
+(defwindow calendar
+  :monitor 0
+  :stacking "fg"
+  :windowtype "dock"
+  :geometry (geometry :x "16px" :y "8px" :anchor "top right")
+  :exclusive true
+  :class "bar"
+  (calendar 
+    :class "calendar" 
+    :month {formattime(EWW_TIME, "%m", time_zone)} 
+    :day {formattime(EWW_TIME, "%d", time_zone)} 
+    :year {formattime(EWW_TIME, "%Y", time_zone)} 
+  )
+)
+;; End Clock/Calendar
+
+
+;; A way of closing menus when clicked or possibly hovered
+(defwidget closer []
+  (eventbox 
+    :onclick "${EWW_CMD} update active_modal=none"
+    :class "menu-closer"
+  )
+)
+ 
+(defwindow menu-closer
+  :monitor 0
+  :geometry (geometry :width "100%" :height "50")
+  :stacking {active_modal == "none" ? "bg" : "fg"}
+  :focusable false
+  (closer) 
+)

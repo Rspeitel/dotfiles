@@ -1,0 +1,55 @@
+(defwidget circular-status [icon class value tooltip ?onclick]
+  (box :class "bar-item"
+    (overlay :class "bar-item"
+      (button 
+        :tooltip tooltip
+        :onclick onclick
+        (image :path "${EWW_CONFIG_DIR}/icons/${icon}.svg")
+      )
+      (circular-progress 
+        :value value
+        :thickness 3
+        :class class
+      )
+    )
+  )
+)
+
+(defwidget system []
+  (box
+    (circular-status
+      :icon "temp" 
+      :class "temp"
+      :value {EWW_TEMPS.ACPITZ_TEMP1}
+      :tooltip "Temp ${EWW_TEMPS.ACPITZ_TEMP1} °C"
+    )
+    (circular-status
+      :icon "dev-memory" 
+      :class "ram"
+      :value {EWW_RAM.used_mem_perc}
+      :tooltip "RAM ${round(EWW_RAM.used_mem_perc, 2)}%"
+    )
+    (circular-status
+      :icon "cpu" 
+      :class "cpu"
+      :value {EWW_CPU.avg}
+      :tooltip "CPU ${round(EWW_CPU.avg, 2)}%"
+    )
+    (circular-status
+      :icon "disk" 
+      :class "storage"
+      :value {EWW_DISK["/"].used_perc}
+      :tooltip "Used Storage ${round(EWW_DISK["/"].used_perc, 2)}%"
+    )
+    (circular-status
+      :icon "battery-${
+          EWW_BATTERY.total_avg > 70 ? 
+          'full' : EWW_BATTERY.total_avg > 20 ? 
+          'stable' : 'low'
+        }-${EWW_BATTERY["BAT0"].status}"
+      :class "battery"
+      :value {EWW_BATTERY.total_avg}
+      :tooltip "Battery ${round(EWW_BATTERY.total_avg, 0)}%"
+    )
+  )
+)
