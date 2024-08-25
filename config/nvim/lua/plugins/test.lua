@@ -6,8 +6,15 @@ return {
     "antoinemadec/FixCursorHold.nvim",
     "nvim-treesitter/nvim-treesitter",
     --"olimorris/neotest-rspec",
-    -- "rouge8/neotest-rust",
     --"nvim-neotest/neotest-jest",
+  },
+  keys  = {
+    { "<leader>x", "" , desc = "+testing", mode = "n"},
+    { "<leader>xwf", function() require("neotest").watch.watch(vim.fn.expand("%")) end , desc = "", mode = "n"},
+    { "<leader>xwu", function() require("neotest").watch.watch() end , desc = "", mode = "n"},
+    { "<leader>xf", function() require("neotest").run.run(vim.fn.expand("%")) end , desc = "", mode = "n"},
+    { "<leader>xu", function() require("neotest").run.run() end , desc = "", mode = "n"},
+    { "<leader>xt", function() require("neotest").summary.toggle() end , desc = "", mode = "n"},
   },
   config = function()
     require("neotest").setup({
@@ -16,10 +23,7 @@ return {
         -- require("neotest-rspec")
         --        dap_adapter = "lldb",I
         -- Rust Config
-        -- require("neotest-rust") {
-        --   args = { "--no-capture" },
-        --   dap_adapter = "lldb",
-        -- }
+        require('rustaceanvim.neotest')
         -- JEST config
         -- require('neotest-jest')({
         -- jestCommand = "npm test --",
