@@ -15,6 +15,7 @@ return {
     { "<leader>xf", function() require("neotest").run.run(vim.fn.expand("%")) end , desc = "", mode = "n"},
     { "<leader>xu", function() require("neotest").run.run() end , desc = "", mode = "n"},
     { "<leader>xt", function() require("neotest").summary.toggle() end , desc = "", mode = "n"},
+    { "<leader>xo", function() require("neotest").output.open({ enter = true }) end , desc = "", mode = "n"},
   },
   config = function()
     require("neotest").setup({
