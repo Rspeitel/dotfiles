@@ -1,6 +1,8 @@
 Actin
 FFT
 FFTs
+Metaprogramming
+Multiscale
 ODE
 ODEs
 PDE
@@ -11,8 +13,10 @@ Speitel
 actin
 calmodulin
 cdc32
-metaprogramming
-Metaprogramming
 databus
+metaprogramming
+multiscale
 thermo-mechanical
-
+silico
+potentiation
+stochasticity

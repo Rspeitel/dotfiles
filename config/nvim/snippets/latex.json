@@ -1,0 +1,12 @@
+{ 
+  "Cite": {
+    "prefix": "cite",
+    "body": ["\\cite{$1}$0"],
+    "description": "Add a cite"
+  },
+  "Ca2+": { 
+    "prefix": ["ca2+"],
+    "body": ["\\(Ca^\\{2+\\}\\)"], 
+    "description": "Latex notation for calcium ion"
+  }
+}

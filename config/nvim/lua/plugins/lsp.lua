@@ -22,6 +22,9 @@ return {
       vim.lsp.protocol.make_client_capabilities(),
       cmp_lsp.default_capabilities()
     )
+    local luasnip = require 'luasnip'
+    -- If the snippets aren't loading check the json is valid with jq . <filepath>
+    require('luasnip.loaders.from_vscode').lazy_load({paths = vim.fn.stdpath("config") .. "/snippets"})
 
     require("fidget").setup({})
     require("mason").setup()
@@ -78,15 +81,8 @@ return {
     })
 
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
-    local luasnip = require 'luasnip'
-    local snip_loader = require('luasnip/loaders/from_vscode')
 
     cmp.setup({
-      opts = function(_, opts)
-        -- Rustaceans support
-        opts.sources = opts.sources or {}
-        table.insert(opts.sources, { name = "crates"} )
-      end,
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body) -- For `luasnip` users.
@@ -123,6 +119,7 @@ return {
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'luasnip' }, -- For luasnip users.
+        { name = "crates"}, -- Rustaceans support
       }, {
         { name = 'buffer' },
       })
