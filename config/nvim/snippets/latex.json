@@ -6,7 +6,7 @@
   },
   "Ca2+": { 
     "prefix": ["ca2+"],
-    "body": ["\\(Ca^\\{2+\\}\\)"], 
+    "body": ["\\(Ca^{2+}\\)"], 
     "description": "Latex notation for calcium ion"
   }
 }

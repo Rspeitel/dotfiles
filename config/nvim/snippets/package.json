@@ -3,8 +3,12 @@
     "contributes": {
         "snippets": [
             {
-                "language": "tex",
+                "language": ["tex", "plaintex"],
                 "path": "./latex.json"
+            },
+            {
+                "language": ["markdown", "plaintex"],
+                "path": "./md.json"
             }
         ]
     }

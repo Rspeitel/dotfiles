@@ -1,0 +1,16 @@
+{ 
+  "Slide": { 
+    "prefix": ["slide"],
+    "body": [
+      "---",
+      "transition: slide-left",
+      "---",
+      "",
+      "# ${1: Title}",
+      "",
+      "<!--",
+      "-->"
+    ],
+    "description": "Slidev, empty slide with default transition"
+  }
+}
