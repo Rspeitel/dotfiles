@@ -35,18 +35,26 @@ gaps inner $inner_gaps
 
 # EWW Bar
 exec eww -c ~/dotfiles/config/eww/ open bar
+# Notification Manager
+exec mako
 
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-output eDP-2 mode 2560x1600@60Hz scale 1.5 pos 0 0
-#output DP-3 mode 1920x1080@60Hz scale 1 pos 0 0
-#output HDMI-A-1 mode 2560x1600@60Hz scale 1.5 pos 1920 0
 
-#workspace 1 output DP-3
-#workspace 2 output HDMI-A-1
-workspace 1 output eDP-2
-
+# Two monitors, school
+# output eDP-2 mode 2560x1600@60Hz scale 1.5 pos 0 0
+# output DP-1 mode 1920x1080 scale 1 pos 1706 0
+#
+# workspace 2 output DP-1
 # workspace 1 output eDP-2
-# workspace 2 output DP-3
+
+# Three monitors, home
+output DP-3 mode 1920x1080@60Hz scale 1.0 pos  0 0
+output HDMI-A-1 mode 2560x1440@120Hz scale 1.0 pos 1920 0
+output eDP-2 mode 2560x1600@60Hz scale 1.5 pos 4480 0
+
+workspace 1 output DP-3
+workspace 2 output HDMI-A-1
+workspace 3 output eDP-2
 
 # Border config
 default_border pixel 1
@@ -130,6 +138,9 @@ bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
+
+    # Lock screen
+    bindsym $mod+Shift+q exec swaylock --color 393939
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
@@ -245,5 +256,9 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+
+# OBS
+exec xdg-desktop-portal-wlr
+exec sleep 2 && xdg-desktop-portal
 
 include @sysconfdir@/sway/config.d/*
