@@ -1,8 +1,5 @@
 #!/bin/zsh
 
-# ZShell
-[[ -f ~/.config/zsh/zshrc ]] && . ~/.config/zsh/zshrc
-
 # SSH Agent
 eval "$(ssh-agent -s)" > /dev/null 2>&1
 
@@ -15,8 +12,11 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME}/zsh"
+export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
+export NPM_CONFIG_PREFIX="${XDG_DATA_HOME:-$HOME/.local/share}/npm"
+export ASDF_CONFIG_FILE="${XDG_CONFIG_HOME:-$HOME/.config/}asdf/asdfrc"
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
-export FREE_CAD_USER_HOME="${XDG_CONFIG_HOME:-$HOME/.local/share}/FreeCAD"
+export FREE_CAD_USER_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/FreeCAD"
 
 #ASDF
 export ASDF_DATA_DIR="${XDG_DATA_HOME}/asdf"
@@ -31,6 +31,10 @@ alias audio-sinks="pactl list sinks | grep -E 'Sink #|Name:' | sed -E 's/Sink #(
 alias mv="mv -i"
 alias rm="rm -i"
 alias cp="rm -i"
+
+# ZShell
+[[ -f ~/.config/zsh/zshrc ]] && . ~/.config/zsh/zshrc
+
 
 # Start sway
 if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then

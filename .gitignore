@@ -7,37 +7,31 @@ config/nvim/lazy-lock.json
 # DWM Builds
 *.o
 # Extra .configs that we don't need to include
-config/FreeCAD
-config/google-chrome
-config/nvim/autoload
-config/nvim/plugged
-config/zsh/.zcompdump
-config/ncspot/userstate.toml
-config/bpytop/error.log
-config/pulse
-config/filezilla
-config/qutebrowser/bookmarks
-config/qutebrowser/quickmarks
-config/dconf
-config/QtProject.conf
-config/darktable
-config/rclone
+dot-config/FreeCAD
+dot-config/google-chrome
+dot-config/nvim/autoload
+dot-config/nvim/plugged
+dot-config/zsh/.zcompdump
+dot-config/ncspot/userstate.toml
+dot-config/bpytop/error.log
+dot-config/pulse
+dot-config/filezilla
+dot-config/qutebrowser/bookmarks
+dot-config/qutebrowser/quickmarks
+dot-config/dconf
+dot-config/QtProject.conf
+dot-config/darktable
+dot-config/rclone
 
 # Qbittorrent
-config/qBittorrent/categories.json
-config/qBittorrent/rss
-config/qBittorrent/watched_folders.json
-config/qBittorrent/qBittorrent-data.conf
+dot-config/qBittorrent/rss
+dot-config/qBittorrent/categories.json
+dot-config/qBittorrent/watched_folders.json
+dot-config/qBittorrent/qBittorrent-data.conf
 
 #Joplin Desktop
-config/Joplin
-config/joplin-desktop/database.sqlite
-config/joplin-desktop/cache
-config/joplin-desktop/resources
-config/joplin-desktop/tmp
-config/joplin-desktop/log.txt
-config/joplin-desktop/plugins
-config/joplin-desktop/plugin-data
+dot-config/Joplin
+dot-config/joplin-desktop
 
 # Local
 local/share/cargo
