@@ -1,14 +1,11 @@
 #!/bin/zsh
 
-# Start sway
-if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
-  exec sway
-fi
-
+# ZShell
 [[ -f ~/.config/zsh/zshrc ]] && . ~/.config/zsh/zshrc
 
 # SSH Agent
 eval "$(ssh-agent -s)" > /dev/null 2>&1
+
 
 # For GPG key signing
 export GPG_TTY=$(tty)
@@ -17,17 +14,26 @@ export GPG_TTY=$(tty)
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
+export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME}/zsh"
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
-export FREE_CAD_USER_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/FreeCAD"
+export FREE_CAD_USER_HOME="${XDG_CONFIG_HOME:-$HOME/.local/share}/FreeCAD"
+
+#ASDF
+export ASDF_DATA_DIR="${XDG_DATA_HOME}/asdf"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 export EDITOR="nvim"
-export TERMINAL="foot" # Update
+export TERMINAL="wezterm"
 export BROWSER="firefox"
 
 # Aliases
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
 alias audio-sinks="pactl list sinks | grep -E 'Sink #|Name:' | sed -E 's/Sink #([0-9]+)/ID: \1/; s/Name: (.+)/Name: \1/'"
 alias mv="mv -i"
 alias rm="rm -i"
 alias cp="rm -i"
+
+# Start sway
+if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
+  exec sway
+fi
+

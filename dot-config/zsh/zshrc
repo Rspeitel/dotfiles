@@ -21,8 +21,8 @@ SAVEHIST=10000000
 HISTFILE=~/.cache/zsh/history
 
 
-# ASDF
-[ -f ~/.local/share/asdf/asdf.sh ] && . $HOME/.local/share/asdf/asdf.sh
+# ASDF append completions to fpath
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 
 # Basic auto/tab complete:
 autoload -U compinit
