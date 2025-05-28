@@ -5,6 +5,13 @@ setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
 
+# Aliases
+alias audio-sinks="pactl list sinks | grep -E 'Sink #|Name:' | sed -E 's/Sink #([0-9]+)/ID: \1/; s/Name: (.+)/Name: \1/'"
+alias mv="mv -i"
+alias rm="rm -i"
+alias cp="rm -i"
+
+
 # Load git info
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
@@ -19,6 +26,7 @@ RPS1='${vcs_info_msg_0_}'
 HISTSIZE=100000
 SAVEHIST=100000
 HISTFILE="{XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
+setopt inc_append_history
 
 
 # ASDF append completions to fpath
